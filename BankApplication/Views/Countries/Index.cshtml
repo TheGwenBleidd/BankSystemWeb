@@ -1,0 +1,21 @@
+﻿@model IEnumerable<BankApplication.Country>
+
+<h1>Index</h1>
+
+<table class="table">
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountryCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountryName)
+            </td>
+        </tr>
+    }
+</table>
