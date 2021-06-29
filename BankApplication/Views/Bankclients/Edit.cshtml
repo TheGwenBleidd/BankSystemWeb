@@ -4,6 +4,8 @@
     ViewData["Title"] = "Edit";
 }
 
+<a asp-controller="Account" asp-action="Show" asp-route-id="@Model.Id">Посмотреть свой аккаунт</a>
+
 <h1>Edit</h1>
 
 <h4>Bankclient</h4>
@@ -42,13 +44,6 @@
                 <label asp-for="ClientBirthday" class="control-label"></label>
                 <input asp-for="ClientBirthday" class="form-control" />
                 <span asp-validation-for="ClientBirthday" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <a>AccountNumber:@ViewBag.ClientAcc.AccountNumber</a>
-            </div>
-
-            <div class="form-group">
-                <a>AccountBalance:@ViewBag.ClientAcc.Balance</a>
             </div>
 
             <div class="form-group">

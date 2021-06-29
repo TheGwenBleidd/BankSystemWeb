@@ -1,0 +1,27 @@
+﻿@model IEnumerable<dynamic>
+
+<h1>Clients grouped by Country Name</h1>
+
+<table class="table">
+
+    @foreach (dynamic item in Model)
+    {
+        <tr>
+            <td>
+                <a>@item.CountryName</a>
+            </td>
+            <td>
+                <a>@item.FullName</a>
+            </td>
+            <td>
+                <a>@item.Address</a>
+            </td>
+            <td>
+                <a>@item.IIN</a>
+            </td>
+            <td>
+                <a>@item.BirthDay</a>
+            </td>
+        </tr>
+    }
+</table>
