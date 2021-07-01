@@ -28,7 +28,17 @@ namespace BankApplication.Controllers
 
             var query = (from city in _context.Cities
                         join client in _context.Bankclients on city.Id equals client.CityId
-                        select new { FullName = client.ClientFullName, CityName = city.CityName, Address = client.Address, IIN = client.UniqueIdentityNumber, BirthDay = client.ClientBirthday }).OrderByDescending(c => c.CityName).AsEnumerable().Select(c=> c.ToExpando());
+                        select new { city.CityName, client.Id }
+                        into x
+                        group x by new { x.CityName }
+                        into y
+                        select new
+                        {
+                            y.Key.CityName,
+                            Count = y.Select(x => x.Id).Count()
+                        }).AsEnumerable().Select(c => c.ToExpando());
+
+                        
 
             return View(query);
         }
